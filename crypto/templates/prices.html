@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<h2>{{notfoun}}</h2>
+
+{% if crypto.Response %}
+       Sorry,that symbol doesn't exits try something like 'XRP' or 'BTC'
+{% endif %}
+
+
+{% for key,value in crypto.DISPLAY.items %}
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">{{key}}</h1>
+    <strong>Name :</strong>{{ key }}<br/>
+    <strong>Price :</strong>{{ value.USD.PRICE }}<br/>
+    <strong>Day High :</strong0>{{ value.USD.HIGHDAY }}<br/>
+    <strong>Day Low :</strong> {{ value.USD.LOWDAY }}<br/>
+    <strong>Market cap :</strong>{{ value.USD.MKTCAP }}<br/>
+  </div>
+</div>
+
+    <hr><br/><br/>
+    {% endfor %}
+
+
+ {% endblock %}
